@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<style type="text/css">
+			body{
+				background-color:black;
+			}
+			.formulario{
+    			position: absolute;
+    			margin-top: 10%;
+    			margin-left: 34%;
+
+			}
+			legend{
+    			font-style: italic;
+			}
+			a{
+    			color: blue;
+			}
+			input[type=text]{
+    			border-radius: 0;
+    
+			}
+			input[type=password]{
+    			border-radius: 0;
+			}
+			form{
+    			background-color:#E6E6E6;
+    			border-style: outset;
+    			padding: 2%;
+			}
+			h3{
+				padding:1%;
+				color:white;
+			}
+		
+		</style>
+	</head>
+	<body>
+		<div class="formulario">
+		<h3>Introduzca nombre y contraseña:</h3>
+		<form action="01.php">
+			<p>NOMBRE:</p><input type="text" maxlength="20" name="nombre" required><br>
+			<p>CONTRASEÑA</p><input type="password" maxlength="8" name="contraseña" required><br>
+			<input type="submit" name="enviar" value="enviar">
+			<input type="reset" name="borrar" value="borrar">
+		</form>
+		</div>
+	</body>
+</html>
