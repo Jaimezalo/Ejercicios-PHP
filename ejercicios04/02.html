@@ -17,26 +17,39 @@
 			form{
     			background-color:#E6E6E6;
     			border-style: outset;
-    			   padding:2px;
-   cursor:pointer;
-   display:block;
-   width:30%;
-   margin: 10% auto;
-   text-align:left;
+    			font-family:monospace;
+    			font-size:1.5em;
+    			padding:2px;
+   				cursor:pointer;
+   				display:block;
+   				width:34%;
+   				margin: 10% auto;
+   				text-align:left;
 
 			}
             .radios{
-                padding: 2%;
-              
+                padding: 2%;              
             }
-		
+            #operacion{
+            	padding: 2%;
+            }
+            #tipo{
+            	padding: 2%;
+            }
+			.numeros{
+			padding-left: 5%;
+			}
+			
+			#botones{
+				padding-left:34%;
+			}
 		</style>
 	</head>
 	<body>
-
 		<form action="02.php" method="post">
-			CIFRA 1<input type="number" name="num1" required><br>
-			CIFRA 2<input type="number" name="num2" required>
+			<div class="numeros">
+				<input type="text" name="num1" required><br>
+			</div>
 			<div id="operacion">
 				<label class="radios">
 				<input type="radio" name="operacion" value="suma" checked>+
@@ -51,9 +64,12 @@
   				<input type="radio" name="operacion" value="division">/
   				</label>
   			</div>
+  			<div class="numeros">
+  				<input type="text" name="num2" required>
+  			</div>
 			<div id="tipo">
 				<label class="radios">
-  				<input type="radio" name="tipo" value="decimal">Decimal
+  				<input type="radio" name="tipo" value="decimal" checked>Decimal
   				</label>
   				<label class="radios">
   				<input type="radio" name="tipo" value="binario">Binario
@@ -62,8 +78,13 @@
   				<input type="radio" name="tipo" value="hexadecimal">Hexadecimal
   				</label>
   			</div>
-			<input type="submit" name="enviar" value="=">
-			<input type="reset" name="borrar" value="C">
+  			<div id="botones">
+				<input type="submit" name="enviar" value="=">
+				<input type="reset" name="borrar" value="C">
+			</div>
+			<div class="numeros">
+  				<input type="text" name="num3">
+  			</div>
 		</form>
 
 	</body>

@@ -5,28 +5,36 @@
 </head>
 <body>
 <?php
-    include 'funcionesvar.php';
+
 /*procesa un formulario (02.html) para calcular una operacion con dos numeros .*/
     
     $resultado=0;
+    $signo ="";
+    
+    /*Comprueba que tipo de operación a elegido el usuario[suma/resta/multiplicacion/division]*/
     switch ($_REQUEST[operacion]){
         case "suma":
-          $resultado = sumar($_REQUEST[num1], $_REQUEST[num2]);
+          $resultado = $_REQUEST[num1] + $_REQUEST[num2];
+          $signo = "+";
           break;
         case "resta":
-            $resultado = restar($_REQUEST[num1], $_REQUEST[num2]);
+            $resultado = $_REQUEST[num1] - $_REQUEST[num2];
+            $signo = "-";
             break;
         case "producto":
-            $resultado = multiplicar($_REQUEST[num1], $_REQUEST[num2]);
+            $resultado = $_REQUEST[num1] * $_REQUEST[num2];
+            $signo = "*";
             break;
         case "division":
-            $resultado = dividir($_REQUEST[num1], $_REQUEST[num2]);
+            $resultado = $_REQUEST[num1] / $_REQUEST[num2];
+            $signo = "/";
             break;
     }
     
+    /*Comprueba que tipo de resultado a elegido el usuario [decimal/binario/hexadecimal]*/
     switch ($_REQUEST[tipo]){
         case "decimal":
-            $resultado = sumar($_REQUEST[num1], $_REQUEST[num2]);
+            $resultado = $resultado;
             break;
         case "binario":
             $resultado = decbin( $resultado );
@@ -38,9 +46,10 @@
 
 ?>
 <script type="text/javascript">
-	alert('<?php echo "El resultado es: ".$resultado?>');
+	alert('<?php echo $_REQUEST[num1]." ".$signo." ".$_REQUEST[num2]." = ".$resultado?>');
+	
 </script>
-
+	
 <hr>
 <?php show_source(__FILE__);?>
 

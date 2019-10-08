@@ -1,0 +1,72 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<style type="text/css">
+			body{
+				background-color:black;
+			}
+
+			input[type=text]{
+    			border-radius: 0;
+    
+			}
+			input[type=password]{
+    			border-radius: 0;
+			}
+			form{
+    			background-color:#E6E6E6;
+    			border-style: outset;
+    			font-family:monospace;
+    			font-size:1em;
+    			padding:15px;
+   				cursor:pointer;
+   				display:block;
+   				width:40%;
+   				margin: 10% auto;
+   				text-align:left;
+
+			}
+            .radios{
+                padding: 2%;              
+            }
+            #operacion{
+            	padding: 2%;
+            }
+            #tipo{
+            	padding: 2%;
+            }
+			.numeros{
+			padding-left: 5%;
+			}
+			
+			#botones{
+				padding-left:34%;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="03.php" method="post">		
+				<p>NUMERO 1 (number):<input type="number" name="numero1"></p>
+				<p>NUMERO 2 (range[10-100]):<input type="range" name="rango" min="10" max="100"></p>
+  				<p>Estaciones (list):<input list="browsers" name="list"></p>
+										<datalist id="browsers">
+    									<option value="Primavera">
+    									<option value="Verano">
+    									<option value="Otoño">
+    									<option value="Invierno">
+  										</datalist>
+  				<p>Color favorito (COLOR):<input type="color" name="color" value="#000000"></p>
+  				<p>Buscar(search):<input type="search" name="buscar"></p>
+  				<p>Nombre (text):<input type="text" name="nombre"> </p>
+  				<p>Apellido (text):<input type="text" name="apellido"></p>
+  				<p>E-mail (email):<input type="email" name="email"></p>
+  				<p>Fecha de nacimiento:<input type="date" name="fecha"></p>
+				<p>Edad (number)(de 0 a 150):<input type="number" name="edad" max="150"></p>
+				<p>Pagina personal (url)<input type="url" name="pagina"></p>
+  				<p>Horario: De <input type="time" name="hora1">a<input type="time" name="hora2"></p>
+  				<input type="submit" name="enviar" value="Enviar consulta">
+		</form>
+
+	</body>
+</html>
