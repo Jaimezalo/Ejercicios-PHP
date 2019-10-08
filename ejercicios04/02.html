@@ -1,0 +1,71 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<style type="text/css">
+			body{
+				background-color:black;
+			}
+
+			input[type=text]{
+    			border-radius: 0;
+    
+			}
+			input[type=password]{
+    			border-radius: 0;
+			}
+			form{
+    			background-color:#E6E6E6;
+    			border-style: outset;
+    			   padding:2px;
+   cursor:pointer;
+   display:block;
+   width:30%;
+   margin: 10% auto;
+   text-align:left;
+
+			}
+            .radios{
+                padding: 2%;
+              
+            }
+		
+		</style>
+	</head>
+	<body>
+
+		<form action="02.php" method="post">
+			CIFRA 1<input type="number" name="num1" required><br>
+			CIFRA 2<input type="number" name="num2" required>
+			<div id="operacion">
+				<label class="radios">
+				<input type="radio" name="operacion" value="suma" checked>+
+				</label>
+				<label class="radios">
+  				<input type="radio" name="operacion" value="resta">-
+  				</label>
+  				<label class="radios">
+  				<input type="radio" name="operacion" value="producto">*
+  				</label>
+  				<label class="radios">
+  				<input type="radio" name="operacion" value="division">/
+  				</label>
+  			</div>
+			<div id="tipo">
+				<label class="radios">
+  				<input type="radio" name="tipo" value="decimal">Decimal
+  				</label>
+  				<label class="radios">
+  				<input type="radio" name="tipo" value="binario">Binario
+  				</label>
+  				<label class="radios">
+  				<input type="radio" name="tipo" value="hexadecimal">Hexadecimal
+  				</label>
+  			</div>
+			<input type="submit" name="enviar" value="=">
+			<input type="reset" name="borrar" value="C">
+		</form>
+
+	</body>
+</html>
+
