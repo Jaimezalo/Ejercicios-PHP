@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="es" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<style type="text/css">
+			body{
+				background-color:black;
+			}
+
+			input[type=text]{
+    			border-radius: 0;
+    
+			}
+			input[type=password]{
+    			border-radius: 0;
+			}
+			form{
+    			background-color:#E6E6E6;
+    			border-style: outset;
+    			font-family:monospace;
+    			font-size:1em;
+    			padding:2%;
+   				cursor:pointer;
+   				display:block;
+   				width:32%;
+   				margin: 10% auto;
+   				text-align:left;
+
+			}
+			#textarea{
+				text-align:left;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="05.php" method="post">		
+				
+					Nombre:    <input type="text" name="nombre"><br>
+					Apellidos: <input type="text" name="apellidos"><br><br>
+
+  				Edad: <select name="edad">
+   					<option value="04">más de 10</option> 
+   					<option value="05">más de 20</option> 
+   					<option value="06">más de 30</option>
+   					<option value="07">más de 40</option> 
+   					<option value="08">más de 50</option> 
+   					<option value="09">más de 60</option>
+   					<option value="10">más de 70</option>
+   					<option value="11">más de 80</option>
+				</select><br>
+					Sexo: <input type="radio" name="sexo" value="hombre"> hombre
+					 <input type="radio" name="sexo" value="mujer"> mujer<br><br>
+					 
+				Hobbies:<br>
+  						<input type="checkbox" name="hobbies[]" value="lectura"> lectura <br>
+  						<input type="checkbox" name="hobbies[]" value="tele"> Ver la tele<br>
+  						<input type="checkbox" name="hobbies[]" value="deporte"> Hacer deporte<br>
+  						<input type="checkbox" name="hobbies[]" value="marcha"> Salir de marcha <br><br>
+
+				<div id="botones">
+					<input type="submit" name="enviar" value="Enviar">
+				</div>
+		</form>
+
+	</body>
+</html>
