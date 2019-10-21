@@ -9,7 +9,7 @@
 	<body>
 	<?php 
 	   
-	   $hobbies = $_POST[hobbies];
+	   $hobbies = $_POST["hobbies"];
        $trato = '';
 	   
 	   if(isset($_POST[enviar])){
@@ -33,13 +33,13 @@
 	               echo $trato." ".$nombre." ".$apellidos." su única afición es ".$hobbies[0];  
 	           }else{
 	               echo $trato." ".$nombre." ".$apellidos." sus aficiones son ";
-	               foreach ($hobbies as $valor){
-	                   echo $valor.", ";
+	               for ($i=0; $i<count($hobbies); $i++){
+	                   echo $hobbies[$i].", ";
 	           }
 	       }  
 	   }
 	   }else{
-	       echo "ERROR";
+	       header("Location: 05_2.html");
 	   }
 	
 	   

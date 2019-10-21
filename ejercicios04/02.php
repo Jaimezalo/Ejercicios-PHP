@@ -10,7 +10,7 @@
     
     $resultado=0;
     $signo ="";
-    
+ if(isset($_POST[enviar])){
     /*Comprueba que tipo de operación a elegido el usuario[suma/resta/multiplicacion/division]*/
     switch ($_REQUEST[operacion]){
         case "suma":
@@ -43,7 +43,7 @@
             $resultado = dechex($resultado);
             break;
     }
-
+ }
 ?>
 <script type="text/javascript">
 	alert('<?php echo $_REQUEST[num1]." ".$signo." ".$_REQUEST[num2]." = ".$resultado?>');

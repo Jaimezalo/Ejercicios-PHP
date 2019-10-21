@@ -8,7 +8,7 @@
 	</head>
 	<body>
 	<?php 
-	if(isset($_POST[submit])){
+	if(isset($_POST[enviar])){
 	   $tablaCodigos = ["Asturias" => "33","Barcelona" => "08","Cadiz" => "11",
 	       "Gerona" => "17","Madrid" => "28","Sevilla" => "41","Valladolid" => "47","Zamora" => "49"];
 	   
