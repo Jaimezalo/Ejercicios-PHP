@@ -46,7 +46,7 @@ function BuscarLetra($dni) {
               
             }
             h2{
-               border: 2px solid red;
+               border: 2px solid;
   border-radius: 5px;
  
             }
