@@ -1,5 +1,5 @@
-<!----------------------------------- Codigo PHP ----------------------------------------->
 
+<!----------------------------------- PHP -----------------------------------------> 
 <?php 
 
 $errores=" ";
@@ -72,31 +72,46 @@ function ConfirmarPassword($password, $password2) {
 }
 
 ?>
-<!---------------------------------------------- Codigo HTML ----------------------------------------->
+ 
+<!---------------------------------------------- HTML ----------------------------------------->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="es" dir="ltr">
 	<head>
 	  	<meta charset="utf-8">
   		<meta name="viewport" content="width=device-width, initial-scale=1">
+  		<title>Registrar</title>
   		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  				<script type="text/javascript">
+  		<script type="text/javascript">
 			function ValidarDatos(){
 		  		var nombre = document.getElementById("name").value;
 		  		var email = document.getElementById("email").value;
 		  		var clave1 = document.getElementById("clave1").value;
 		  		var clave2 = document.getElementById("clave2").value;
-				
-		  	    //Test campo obligatorio
-		  	    if((nombre == null) || (nombre.length == 0) || (/^\s+$/.test(nombre))){
-		  	      alert('ERROR: El campo nombre no debe ir vacío o lleno de solamente espacios en blanco');
-		  	      return false;
-		  	    }
-				  CompCorreo(email);
-				  CompSeguridad(clave1);
 
-				  //Test correo
+				if(CampoVacio()){
+					if(CompCorreo(email)){
+						if(CompSeguridad(clave1)){
+							alert("Usuario registrado");
+							window.location.href='bienvenido.php';
+						}
+					}
+				}
+				
+				//Se comprueba que todos los campos estén rellenados
+				function CampoVacio(){
+		  	    	if((nombre == null) || (nombre.length == 0) || (/^\s+$/.test(nombre))
+					  	||(email == null) || (email.length == 0)
+						||(clave1 == null) || (clave1.length == 0)
+						||(clave2 == null) || (clave2.length == 0)){
+		  	      		alert('ERROR: Todos los campos deben estar rellenados');
+		  	      		return false;
+		  	    	}
+					  return true;
+				}
+
+	 			//Se comprueba que el email sea del formato correcto
 				function CompCorreo(email){
 		  	    if(!(/\S+@\S+\.\S+/.test(email))){
 		  	      alert('ERROR: Debe escribir un correo válido');
@@ -104,20 +119,23 @@ function ConfirmarPassword($password, $password2) {
 				  }
 				  return true;
 				}
-				
+
+				//Se hacen las comprobaciones de seguridad de la contraseña
 				function CompSeguridad(clave1){
-					if((clave1 == null) || (clave1.length == 0) || (/^\s+$/.test(clave1))){
-		  	      		alert('ERROR: La contraseña no debe estar vacía');
-		  	      		return false;
+
+					if(TieneMayusculas(clave1)){
+						if(TieneMinusculas(clave1)){
+							if(TieneDigitos(clave1)){
+								if(TieneEspecial(clave1)){
+									if(CompConfirmacion(clave1, clave2)){
+										return true;
+									}
+								}
+							}
+						}
 					}
 
-					TieneMayusculas(clave1);
-					TieneMinusculas(clave1);
-					TieneDigitos(clave1);
-					TieneEspecial(clave1);
-					CompConfirmacion(clave1, clave2);
-					
-
+					//La contraseña debe contener alguna mayúscula
 					function TieneMayusculas(clave1){
 						var letras = "ABCDEFGHYJKLMNÑOPQRSTUVWXYZ";
    						for(i=0; i<clave1.length; i++){
@@ -128,6 +146,8 @@ function ConfirmarPassword($password, $password2) {
 						   alert('ERROR: La contraseña debe contener alguna mayúscula');
    						return false;
 					} 
+
+					//La contraseña debe contener alguna minúscula
 					function TieneMinusculas(clave1){
 						var letras = "abcdefghyjklmnñopqrstuvwxyz";
    						for(i=0; i<clave1.length; i++){
@@ -138,6 +158,8 @@ function ConfirmarPassword($password, $password2) {
 						   alert('ERROR: La contraseña debe contener alguna minúscula');
    						return false;
 					} 
+
+					//La contraseña debe contener algún dígito
 					function TieneDigitos(clave1){
 						var digitos = "0123456789";
    						for(i=0; i<clave1.length; i++){
@@ -149,6 +171,7 @@ function ConfirmarPassword($password, $password2) {
    						return false;
 					} 
 
+					//La contraseña debe contener algún caracter especial
 					function TieneEspecial(clave1){
 						var patron = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}";
 						var resultado = clave1.test(patron);
@@ -159,6 +182,7 @@ function ConfirmarPassword($password, $password2) {
 						return true;
 					}
 
+					//La confirmación de la contraseña y la contraseña deben ser iguales
 					function CompConfirmacion(clave1, clave2){
 						if(clave1 === clave2){
 							return true;
@@ -183,6 +207,9 @@ function ConfirmarPassword($password, $password2) {
                border: 2px solid red;
                 border-radius: 5px;
             }
+            script{
+                color:red;
+            }
   		</style>
 	</head>
 <body>
@@ -193,7 +220,7 @@ function ConfirmarPassword($password, $password2) {
 	<div class="row">
 		<div class="col-sm-4"></div>
 		<div class="col-sm-4">
-		<form action="" method="post" class="border p-3 form" onsubmit="return validarDatos(this)">  		
+		<form action="" method="post" class="border p-3 form" onsubmit="return ValidarDatos(this)">  		
     		<label for="nombre">Nombre:</label>
     		<input type="text" class="form-control" name="nombre" id="name" placeholder="nombre" 
     		value="<?=(isset($_REQUEST['nombre']))?$_REQUEST['nombre']:''?>">
