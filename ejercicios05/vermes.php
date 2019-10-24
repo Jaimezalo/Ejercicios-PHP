@@ -24,6 +24,7 @@ if(isset($_POST["enviar"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
     $diaSemana = date('N', strtotime("1-$mes-$anio"))+0; 
     $diasMes = date('t', strtotime("1-$mes-$anio"))+0;
     $dia=0;
+    $fechaActual= date("j") . "-" . date("m") . "-" . date("Y");
 
         for($i=0; $i<5; $i++){   
             
@@ -35,8 +36,12 @@ if(isset($_POST["enviar"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
                 }else{
                     $dia++;
                     if($dia <= $diasMes){ 
+                        $fecha = $dia."-".$mes."-".$anio;
+                        if($fecha===$fechaActual){
+                            echo "<td class=\"actual\" onclick='diaActual();'>".$dia."</td>";
                         if(($j === 6)||($j === 7)){
                             echo "<td class=\"red\">".$dia."</td>";
+                        }
                         }else{echo "<td>".$dia."</td>";}
                         
                     }else{
@@ -72,7 +77,16 @@ function OptionAnio() {
   		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			function diaActual(){
+				var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+				var f=new Date();
+				alert("Hoy es:\n"+f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear());
 
+				
+			}
+			
+		</script>
   		<style>	
             .abs-center 
             {
@@ -94,6 +108,10 @@ function OptionAnio() {
             }
             .red{
                 color:red;
+            }
+            .actual{
+                background-color:yellow;
+                font-weight: bold;
             }
   		</style>
 	</head>
