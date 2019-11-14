@@ -1,3 +1,8 @@
+<!-- Realizar el  programa guardarimagenes.php  que muestre un formulario web que permita el envío
+ de uno o dos fichero de imágenes que se guardarán un directorio  llamado imgusers no accesible por web.  
+ Crear el directorio y darle los permisos adecuados. El programa   mostrará el formulario (GET) o lo procesará (POST) -->
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="es" dir="ltr">
 	<head>

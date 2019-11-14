@@ -9,7 +9,7 @@
     if(!isset($_SESSION['pasos'])){
         
         $_SESSION['pasos'] = 1;
-        $_SESSION['nav'] = '';
+        $_SESSION['nav'] = 1;
         $_SESSION['valores'] = [];
 
     }
@@ -60,7 +60,7 @@
         break;
         case 4: include_once 'resumen.php';
     }
-
+   print_r($_SESSION['valores']);
     // La sesión se cerrará tras 500 segundos de inactividad
     $inactividad = 500;
     if(isset($_SESSION["timeout"])){
