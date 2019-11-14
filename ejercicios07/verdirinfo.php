@@ -7,7 +7,7 @@
 	<head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  	<title>Comprobar usuario</title>
+  	<title>Info de directorio</title>
 	<style type="text/css">
 	   form{margin-top:20vh;}
 	</style>
